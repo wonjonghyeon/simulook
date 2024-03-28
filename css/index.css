@@ -32,7 +32,7 @@ body {
 
   .container {
     width: 70%;
-    margin: auto;
+    margin-left: 0;
     overflow: hidden;
   }
   .images {
@@ -62,7 +62,7 @@ body {
   }
 }
 
-@media (min-width: 640px) {  
+@media (min-width: 700px) {  
   .container {
     margin-left: 200px
     display: grid;
