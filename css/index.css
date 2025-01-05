@@ -2,14 +2,23 @@ body {
     margin: 0;
 }
 
-h2 {
+header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    z-index: 999;
+    
+}
+
+header h2 {
     text-align: center;
 }
 
-header {
+header nav{
     background-color: #f2f2f2;
-    padding: 0;
-
+    
 }
 
 nav ul {
@@ -34,8 +43,7 @@ nav a {
 
 .container {
     width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 90px auto;
     overflow: hidden;
 }
 

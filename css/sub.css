@@ -6,7 +6,7 @@ a {
     text-decoration-line: none;      
 }
 
-h1 {
+h2 {
     text-align: center;
 }
 
@@ -18,3 +18,7 @@ img {
     display: block;
   }
   
+p {
+    text-align: center;
+    font-size: 20px;
+}
