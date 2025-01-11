@@ -67,6 +67,7 @@ nav a:hover {
 
 figure {
     position: relative;
+    border: 2px solid #222;
 }
 
 figcaption {
@@ -85,6 +86,7 @@ figure img, figure figcaption {
 
 figure:hover img, figure:hover figcaption {
     transform: scale(1.1);
+    border: none;
 }
 
 footer {
