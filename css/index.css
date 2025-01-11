@@ -68,7 +68,9 @@ nav a:hover {
 
 figure {
     position: relative;
+    
 }
+
 
 figcaption {
     text-align: center;
@@ -80,14 +82,36 @@ figcaption {
 
 }
 
-figure img, figure figcaption {
-    transition: all 0.3s ease-in-out;
+figure img {
+    transition: opacity 0.3s ease-in-out;
 }
 
 figure:hover img, figure:hover figcaption {
+    opacity: 0.5;
     transform: scale(1.1);
-
 }
+
+.thumbnail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; 
+}
+
+figure:hover img {
+    opacity: 0.5;
+}
+
+figure:hover figcaption {
+    opacity: 0;
+}
+
+figure:hover .thumbnail {
+    opacity: 1;
+}
+
 
 footer {
     text-align: center;
