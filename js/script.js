@@ -1,39 +1,37 @@
 const slider = document.querySelector('.slider');
-const images = document.querySelectorAll('.slider img');
-
+const images = document.querySelectorAll('.slide');
 let currentIndex = 0;
-const slideWidth = images[0].clientWidth;
 
-const moveSlide = (index) => {
-  slider.style.transform = `translateX(-${index * slideWidth}px)`;
-};
+function moveSlide(index) {
+  images.forEach((image, i) => {
+    image.style.transform = `translateX(${100 * (i - index)}%)`;
+  });
+}
 
-const touchStart = (event) => {
-  startX = event.touches[0].clientX;
-};
+// 초기 슬라이드 설정
+moveSlide(currentIndex);
 
-const touchMove = (event) => {
-  event.preventDefault();
-  const currentX = event.touches[0].clientX;
-  const diff = startX - currentX;
+// 터치 이벤트 처리
+slider.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
 
-  slider.style.transform = `translateX(${-currentIndex * slideWidth + diff}px)`;
-};
+slider.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  let touchX = e.touches[0].clientX;
+  let diffX = startX - touchX;
+  slider.style.transform = `translateX(${diffX}px)`;
+});
 
-const touchEnd = (event) => {
-  const currentX = event.changedTouches[0].clientX;
-  const diff = startX - currentX;
+slider.addEventListener('touchend', (e) => {
+  let touchX = e.changedTouches[0].clientX;
+  let diffX = startX - touchX;
 
-  if (diff > 50) {
-    currentIndex++;
-  } else if (diff < -50) {
-    currentIndex--;
+  if (diffX > 50) { // 오른쪽으로 스와이프
+    currentIndex = (currentIndex + 1) % images.length;
+  } else if (diffX < -50) { // 왼쪽으로 스와이프
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
   }
 
-  currentIndex = Math.max(0, Math.min(currentIndex, images.length - 1));
   moveSlide(currentIndex);
-};
-
-slider.addEventListener('touchstart', touchStart);
-slider.addEventListener('touchmove', touchMove);
-slider.addEventListener('touchend', touchEnd);
+});
