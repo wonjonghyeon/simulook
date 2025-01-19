@@ -19,12 +19,13 @@ function slide(direction) {
     nextIndex = 0;
   }
 
-  const nextImage = images[nextIndex];
 
-  // 현재 이미지 숨기고 다음 이미지 보이기
-  currentImage.style.transform = `translateX(${direction * 100}%)`;
-  nextImage.style.transform = 'translateX(0)';
-
+  // 현재 이미지 숨기고 다음 이미지 보이
+  images.forEach(image => 
+                image.classList.remove('active'));
+  images[currentIndex].classList.add('active');
+       
+    
   currentIndex = nextIndex;
 }
 
