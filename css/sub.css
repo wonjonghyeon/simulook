@@ -31,7 +31,7 @@ h2 {
 .slide {
     width: 100%;
     position: absolute;
-    left: 50%
+    left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.5s ease-in-out; /* 이미지 전환 효과 */
