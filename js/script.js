@@ -6,24 +6,42 @@ let currentIndex = 0;
 // 초기 이미지 활성화
 images[currentIndex].classList.add('active');
 
-// 터치 이벤트 처리
-slider.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-});
 
-slider.addEventListener('touchmove', (e) => {
-  e.preventDefault();
-  let touchX = e.touches[0].clientX;
-  let diffX = startX - touchX;
+// 이미지 슬라이드 함수
+function slide(direction) {
+  const currentImage = images[currentIndex];
+  let nextIndex = currentIndex + direction;
 
-  // 스와이프 방향에 따라 다음/이전 이미지로 이동
-  if (diffX > 50) { // 오른쪽으로 스와이프
-    currentIndex = (currentIndex + 1) % images.length;
-  } else if (diffX < -50) { // 왼쪽으로 스와이프
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
+  // 이미지 인덱스를 0과 2 사이로 유지
+  if (nextIndex < 0) {
+    nextIndex = images.length - 1;
+  } else if (nextIndex >= images.length) {
+    nextIndex = 0;
   }
 
-  // 이전 이미지 비활성화, 현재 이미지 활성화
-  images.forEach(image => image.classList.remove('active'));
-  images[currentIndex].classList.add('active');
+  const nextImage = images[nextIndex];
+
+  // 현재 이미지 숨기고 다음 이미지 보이기
+  currentImage.style.transform = `translateX(${direction * 100}%)`;
+  nextImage.style.transform = 'translateX(0)';
+
+  currentIndex = nextIndex;
+}
+
+// 터치 이벤트 처리
+slider.addEventListener('touchstart', (event) => {
+  const startX = event.touches[0].clientX;
+
+  slider.addEventListener('touchmove', (event) => {
+    event.preventDefault();
+    const currentX = event.touches[0].clientX;
+    const diffX = currentX - startX;
+
+    // 왼쪽으로 스와이프하면 다음 이미지, 오른쪽으로 스와이프하면 이전 이미지
+    if (diffX > 50) {
+      slide(-1);
+    } else if (diffX < -50) {
+      slide(1);
+    }
+  });
 });
