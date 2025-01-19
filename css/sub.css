@@ -19,7 +19,7 @@ h2 {
 .slider-container {
     position: relative;
     text-align: center;
-    width: 85%; /* 슬라이더 너비 조절 */
+    width: 80vw; /* 슬라이더 너비 조절 */
     margin: 0 auto; /* 화면 가운데 배치 */
 }
 
@@ -38,22 +38,4 @@ h2 {
 
 .active {
     opacity: 1;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    padding: 16px;
-    background: #fff;
-    cursor: pointer;
-}
-
-.prev {
-    left: 0;
-}
-
-.next {
-    right: 0;
 }
