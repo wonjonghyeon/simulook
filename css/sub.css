@@ -19,7 +19,7 @@ h2 {
 .slider-container {
     position: relative;
     text-align: center;
-    width: 80vw; /* 슬라이더 너비 조절 */
+    width: 65vw; /* 슬라이더 너비 조절 */
     margin: 0 auto; /* 화면 가운데 배치 */
 }
 
