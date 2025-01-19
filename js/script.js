@@ -1,11 +1,23 @@
 const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 
+const intervalTime = 3000;
 let slideIndex = 0;
 
 // 초기 이미지 활성화
 slides[slideIndex].classList.add('active');
 
+
+function autoSlide(){
+    slides[slideIndex].classList.remove('active');
+    slideIndex += 1;
+    
+    if(slideIndex >= slides.length){
+      slideIndex = 0
+    }
+    slides[slideIndex].classList.add('active');
+    
+}
 
 // 이미지 슬라이드 함수
 function showSlide(n) {
@@ -39,3 +51,6 @@ slider.addEventListener('touchstart', (event) => {
     }
   });
 });
+
+
+setInterval(autoSlide, intervalTime);
