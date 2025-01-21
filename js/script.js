@@ -1,27 +1,39 @@
 const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
+const descri = document.querySelectorAll('.description');
+const figcap = document.querySelectorAll('figcaption');
 
 const intervalTime = 3000;
 let slideIndex = 0;
 
 // 초기 이미지 활성화
 slides[slideIndex].classList.add('active');
+descri[slideIndex].classList.add('active');
+figcap[slideIndex].classList.add('active');
 
-
+// 자동 슬라이드 함수
 function autoSlide(){
     slides[slideIndex].classList.remove('active');
+    descri[slideIndex].classList.remove('active');
+    figcap[slideIndex].classList.remove('active');
+    
     slideIndex += 1;
     
     if(slideIndex >= slides.length){
       slideIndex = 0
     }
     slides[slideIndex].classList.add('active');
-    
+    descri[slideIndex].classList.add('active');
+    figcap[slideIndex].classList.add('active');
+
 }
 
 // 이미지 슬라이드 함수
 function showSlide(n) {
   slides[slideIndex].classList.remove('active');
+  descri[slideIndex].classList.remove('active');
+  figcap[slideIndex].classList.remove('active');
+    
   slideIndex += n;
   
   if(slideIndex >= slides.length){
@@ -31,6 +43,8 @@ function showSlide(n) {
       slideIndex = slides.length - 1
   }
   slides[slideIndex].classList.add('active');
+  descri[slideIndex].classList.add('active');
+  figcap[slideIndex].classList.add('active');
     
 }
 
