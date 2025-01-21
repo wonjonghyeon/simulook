@@ -6,6 +6,9 @@
     
 }
 
+* {
+    font-size: 14px;
+}
 a {
     color: #000;
     text-decoration: none;
@@ -13,6 +16,7 @@ a {
 
 h2 {
     text-align: center;
+    font-size: 2rem;
     font-family: 'Nanum Gothic', sans-serif;
     
 }
@@ -20,22 +24,51 @@ h2 {
     position: relative;
     text-align: center;
     width: 65vw; /* 슬라이더 너비 조절 */
+    height: 65vh;
     margin: 0 auto; /* 화면 가운데 배치 */
 }
 
 .slider {
     overflow: hidden;
-    width: 100%;
+    width: 50%;
+    height: 50%;
+    
 }
 
 .slide {
-    width: 100%;
     position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
     left: 0;
     opacity: 0;
     transition: opacity 0.5s ease-in-out; /* 이미지 전환 효과 */
 }
 
-.active {
+.slide.active, figcaption.active, .description.active {
     opacity: 1;
 }
+
+figcaption {
+    position: absolute;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    bottom: -10vh;
+    
+}
+
+.description {
+    position: absolute;
+    text-align: center;
+    font-size: 1rem;
+    padding: 12px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    bottom: -20vh;
+}
+
