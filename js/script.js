@@ -67,4 +67,4 @@ slider.addEventListener('touchstart', (event) => {
 });
 
 
-setInterval(autoSlide, intervalTime);
+/*setInterval(autoSlide, intervalTime);*/
