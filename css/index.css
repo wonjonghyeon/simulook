@@ -1,12 +1,19 @@
 @font-face {
-    font-family: 'myFont';
+    font-family: 'myWebFont';
     src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'myLocalFont';
+    src: url("../fonts/NanumGothicOTF00.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
-    font-family: 'myFont', 'Nanum Gothic', sans-serif;
+    font-family: 'myWebFont';
     font-size: 20px;
 }
 body {
@@ -35,7 +42,8 @@ nav ul {
 
 nav li {
     margin: 0 20px;
-    font-size: 1rem;
+    font-family: 'myLocalFont';
+    font-size: 1.2rem;
 }
 
 nav a {
@@ -119,6 +127,7 @@ figure:hover .thumbnail {
 
 footer {
     text-align: center;
+    font-size: 0.5rem;
     margin-top: 30px;
     padding: 0px;
     background-color: 0;

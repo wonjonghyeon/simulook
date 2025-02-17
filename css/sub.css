@@ -1,12 +1,22 @@
 @font-face {
-    font-family: 'myFont';
+    font-family: 'myWebFont';
     src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'myLocalFont';
+    src: url("../fonts/NanumGothicOTF00.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
-    font-family: 'myFont', 'Nanum Gothic', sans-serif;
+    font-family: 'myWebFont';    
+}
+
+html {
     font-size: 14px;
     
 }
@@ -15,10 +25,13 @@ a {
     text-decoration: none;
 }
 
-h2 {
-    text-align: center;
-    font-size: 1.8rem;
+
+p.home {
+    font-family: 'myLocalFont';
+    font-size: 2rem;
+    text-align: center
 }
+
 .slider-container {
     position: relative;
     text-align: center;
@@ -52,8 +65,9 @@ h2 {
 figcaption {
     position: absolute;
     text-align: center;
-    font-size: 1.2rem;
-    padding: 10px;
+    font-size: 1.4rem;
+    padding: 1rem;
+    margin: 1rem;
     left: 0;
     right: 0;
     opacity: 0;
@@ -64,11 +78,9 @@ figcaption {
 .description {
     position: absolute;
     text-align: center;
-    font-size: 0.7rem;
-    padding: 12px;
+    font-size: 1rem;
     left: 0;
     right: 0;
     opacity: 0;
-    bottom: -20vh;
+    bottom: -15vh;
 }
-
